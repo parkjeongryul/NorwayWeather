@@ -1,9 +1,8 @@
 .nav {
   position: fixed;
-  margin: 20px 0px;
   width: 100%;
   background-color: rgb(243, 242, 242);
-  padding: 20px 80px;
+  padding: 20px 50px;
   box-sizing: border-box;
   border-top: 1px solid #afafaf;
   font-family: "Jua", sans-serif;
@@ -17,15 +16,4 @@
 .nav__link {
   position: relative;
   color: inherit;
-}
-
-a {
-  text-align: center;
-}
-ul {
-  text-align: center;
-}
-
-li {
-  display: inline-block;
 }
