@@ -1,16 +1,20 @@
 .nav {
   position: fixed;
-  bottom: 0;
+  margin: 20px 0px;
   width: 100%;
   background-color: rgb(243, 242, 242);
-  padding: 20px 50px;
+  padding: 20px 80px;
+  box-sizing: border-box;
   border-top: 1px solid #afafaf;
+  font-family: "Jua", sans-serif;
+  text-align: center;
 }
 .nav__list {
   display: flex;
   justify-content: space-between;
 }
 
-.nav__list {
+.nav__link {
+  position: relative;
   color: black;
 }
