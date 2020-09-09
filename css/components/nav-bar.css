@@ -16,5 +16,16 @@
 
 .nav__link {
   position: relative;
-  color: black;
+  color: inherit;
+}
+
+a {
+  text-align: center;
+}
+ul {
+  text-align: center;
+}
+
+li {
+  display: inline-block;
 }
