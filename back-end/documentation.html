@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Weathericon</title>
+  <link rel="alternate" type="application/rss+xml" title="News RSS" href="/feed/news">
+  <link rel="alternate" type="application/rss+xml" title="Global changelog RSS" href="/feed/changelog">
+  <link rel="alternate" type="application/rss+xml" title="Product changelog RSS" href="https://api.met.no/weatherapi/weathericon/2.0/_/changelog">
+  <link type="image/x-icon" rel="icon" href="/images/met_favicon.png">
+  <link type="image/x-icon" rel="shortcut icon" href="/images/met_favicon.ico">
+  <link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css">
+<link href='/swagger-ui/css/typography.css' media='screen' rel='stylesheet' type='text/css'/>
+<link href='/swagger-ui/css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+<link href='/swagger-ui/css/reset.css' media='print' rel='stylesheet' type='text/css'/>
+<link href='/swagger-ui/css/print.css' media='print' rel='stylesheet' type='text/css'/>
+
+<script src='/swagger-ui/lib/object-assign-pollyfill.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/jquery-1.8.0.min.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/jquery.slideto.min.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/jquery.wiggle.min.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/handlebars-4.0.5.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/lodash.min.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/backbone-min.js' type='text/javascript'></script>
+<script src='/swagger-ui/swagger-ui.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/highlight.9.1.0.pack.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/highlight.9.1.0.pack_extended.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/jsoneditor.min.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/marked.js' type='text/javascript'></script>
+<script src='/swagger-ui/lib/swagger-oauth.js' type='text/javascript'></script>
+
+<style type="text/css">
+  .swagger-section ul#resources { padding-left: 0px; }
+  .swagger-section #api_info { display: none }
+  .swagger-section #message-bar { min-height: 0px; }
+  #swagger-form #input_baseUrl { width: 100px }
+</style>
+
+  <link href="/stylesheets/style_default_2013.css" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/style_layout_2013.css" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/style_menu_2013.css" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/paginator.css" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/dictionary.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    #main-content h2 { margin-top: 24px; }
+    #main-content pre { overflow-x: auto; }
+    #products { padding-right: 12px; }
+    #shortproductlist { background-color: #E5EEF2; padding: 9px 0 9px 0; }
+    #shortproductlist h3 { font-size: 120%; margin: 0 0 3px 12px; }
+    #shortproductlist span.icon { float: right; margin-right: 12px }
+    #products .icon { float: right; margin-right: 0 }
+    #news .newsitem { padding-bottom: 12px; }
+    #news .newsitem .date { font-size: 80%; weight: normal; }
+    #news .newsitem h1 { font-size: 130%; margin-top: 18px; margin-bottom: 6px; }
+    #news .newsitem h2 { font-size: 110%; border: none; margin-top: 6px; margin-bottom: 2px; color: #0090A8; }
+    #news .newsitem h3 { font-size: 100%; font-style: italic; border: none; margin-top: 2px; }
+    #news .newsitem table { margin-left: 12px; margin-bottom: 6px; border-spacing: 0px; }
+    #news .newsitem table td { padding-right: 16px; border-top: 1px solid #cee }
+    #news .newsitem table th { font-style: italic; text-align: left }
+    #news .changelog dt { margin-left: 0; }
+    #news .changelog dd { margin-left: 12px; margin-bottom: 6px; }
+    h2 { margin-top: 12px; border-top: 1px solid #8BD2E0; padding-top: 6px; clear: both; }
+    h3 a.u { color: #8BD2E0; }
+    h3 { clear: both; padding-top: 6px; }
+    code { font-size: 0.8em }
+    div.warning { background-color: #e00; color: white; font-weight: bold; font-size: larger; padding: 8px 8px 8px 8px; }
+    div.message { background-color: #e60; color: white; font-weight: bold; font-size: larger; padding: 8px 8px 8px 8px; }
+    div.state   { background-color: #ee0; color: black; font-weight: bold; font-size: larger; padding: 8px 8px 8px 8px; }
+    img.example { float: left; clear: both; padding-right: 8px; }
+    tr.deprecated { background-color: #fee }
+    tr.beta       { background-color: #ffc }
+    tr.external   { background-color: #eef }
+    span.warningsign { content:url(/images/warning.svg); height: 24px; vertical-align: middle; }
+    pre.meta { background-color: #eee; padding: 8px 8px 8px 8px; }
+  </style>
+  <style type="text/css">
+      .full { width: 940px; }
+      .grid { background-color: #fff; margin-bottom: 12px; border-collapse: collapse; margin-right: 8px }
+      .grid td { border: 1px solid #ddd; padding: 3px; }
+      .grid th { background-color: #eee; border: 1px solid #ddd; padding: 3px; }
+      .grid .c { text-align: center }
+      h3 { margin-top: 18px; }
+      .frontpage dl dt { margin-left: 24px; }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper" class="frontpage">
+    <div id="header" class="clearfix">
+      <div id="logo">
+        <a href="https://met.no"><img src="/images/logo_2013_no.png" alt="met.no"></a>
+      </div>
+
+      <div id="help-links">
+        <ul>
+          <li><a href="/index.html"><img src="/images/gb.png"></a> </li>
+          <li><a href="/index_no.html"><img src="/images/no.png"></a> </li>
+          <li><a href="/doc/">Documentation</a> |</li>
+          <li><a href="/weatherapi/">API reference</a> |</li>
+          <li><a href="/doc/FAQ">FAQ</a> |</li>
+          <li><a href="/doc/License">License</a> |</li>
+          <li><a href="/doc/TermsOfService">Terms of service</a> |</li>
+          <li><a href="/doc/support">Contact us</a></li>
+          <li><a href="/feed/changelog"><img src="/images/16px-Rss-feed.svg.png"></a></li>
+          <li><a href="/weatherapi/healthz"><img src='/weatherapi/healthz?icon' height='15px'></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div id="top-line">
+      <div class="top-menu">
+        <ul>
+          <li><a href="https://api.met.no/weatherapi/weathericon/2.0/documentation">Weathericon</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="main-content" class="frontpage clearfix">
+      
+
+<div class="swagger-section">
+
+
+<script type="text/javascript">
+  $(function () {
+    var url = window.location.search.match(/url=([^&]+)/);
+    if (url && url.length > 1) {
+      url = decodeURIComponent(url[1]);
+    } else {
+      url = "https://api.met.no/weatherapi/weathericon/2.0/swagger";
+    }
+    window.swaggerUi = new SwaggerUi({
+      url: url,
+      dom_id: "swagger-ui-container",
+      supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+      onComplete: function(swaggerApi, swaggerUi){
+        if(typeof initOAuth == "function") {
+          /*
+          initOAuth({
+            clientId: "your-client-id",
+            realm: "your-realms",
+            appName: "your-app-name"
+          });
+          */
+        }
+
+        $('pre code').each(function(i, e) {
+          hljs.highlightBlock(e)
+        });
+
+        addApiKeyAuthorization();
+      },
+      onFailure: function(data) {
+        log("Unable to Load SwaggerUI");
+      },
+      docExpansion: "list",
+      sorter : "alpha",
+      validatorUrl: null
+    });
+
+    function addApiKeyAuthorization(){
+      var key = encodeURIComponent($('#input_apiKey')[0].value);
+      if(key && key.trim() != "") {
+          var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("api_key", key, "query");
+          window.swaggerUi.api.clientAuthorizations.add("api_key", apiKeyAuth);
+          log("added key " + key);
+      }
+    }
+
+    $('#input_apiKey').change(addApiKeyAuthorization);
+
+    // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
+    /*
+      var apiKey = "myApiKeyXXXX123456789";
+      $('#input_apiKey').val(apiKey);
+      addApiKeyAuthorization();
+    */
+
+    window.swaggerUi.load();
+
+    function log() {
+      if ('console' in window) {
+        console.log.apply(console, arguments);
+      }
+    }
+  });
+</script>
+
+<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+
+</div>
+
+<hr>
+
+
+<a name='___top' class='dummyTopAnchor' ></a>
+
+<div class='indexgroup'>
+<ul   class='indexList indexList1'>
+  <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
+  <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
+  <ul   class='indexList indexList2'>
+    <li class='indexItem indexItem2'><a href='#Variants'>Variants</a>
+    <li class='indexItem indexItem2'><a href='#Algorithm'>Algorithm</a>
+    <li class='indexItem indexItem2'><a href='#List_of_symbols'>List of symbols</a>
+  </ul>
+  <li class='indexItem indexItem1'><a href='#USAGE'>USAGE</a>
+  <ul   class='indexList indexList2'>
+    <li class='indexItem indexItem2'><a href='#%2Fdata'>/data</a>
+    <li class='indexItem indexItem2'><a href='#%2Flegends'>/legends</a>
+  </ul>
+  <li class='indexItem indexItem1'><a href='#LICENSE'>LICENSE</a>
+  <li class='indexItem indexItem1'><a href='#Change_log'>Change log</a>
+  <ul   class='indexList indexList2'>
+    <li class='indexItem indexItem2'><a href='#version_2.0_released%2C_2020-06-17'>version 2.0 released, 2020-06-17</a>
+    <li class='indexItem indexItem2'><a href='#version_2.0_beta%2C_2020-02-11'>version 2.0 beta, 2020-02-11</a>
+    <li class='indexItem indexItem2'><a href='#version_1.1%2C_2014-05-20'>version 1.1, 2014-05-20</a>
+  </ul>
+</ul>
+</div>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="NAME"
+>NAME</a></h2>
+
+<p><b>Weathericon</b> - collection of weather icons.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="DESCRIPTION"
+>DESCRIPTION</a></h2>
+
+<p>This is a redesigned set of icons,
+meant to be used in conjunction with Locationforecast/2.0.
+They are available in PNG,
+SVG and PDF formats.</p>
+
+<p>The icons are not meant to be called on demand like earlier versions,
+but to be downloaded as a gzipped TAR archive and packed with your application.
+This will result in better performance and minimize API traffic.</p>
+
+<p>The original icons as used on yr.no can be found on <a href="https://github.com/YR/weather-symbols/" class="podlinkurl"
+>https://github.com/YR/weather-symbols/</a>.</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="Variants"
+>Variants</a></h3>
+
+<p>Some symbols come in three different variants,
+for day,
+night and <a href="https://en.wikipedia.org/wiki/Polar_night#Polar_twilight" class="podlinkurl"
+>polar twilight</a> respectively.
+Others (the ones without sun or moon) are constant during the day.
+Locationforecast/2.0 will specify the correct variant to use for each hour.</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="Algorithm"
+>Algorithm</a></h3>
+
+<p>You can potentially try to reconstruct the weather icons in the API from the locationforecast data.
+A description of the symbolalgorithms is too long to document and support officially,
+but you can have a look at the source code here if you are interested: <a href="https://github.com/metno/weather_symbol" class="podlinkurl"
+>https://github.com/metno/weather_symbol</a>.</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="List_of_symbols"
+>List of symbols</a></h3>
+
+<p><table class='grid full'>
+<tr><th>Code</th><th>Old id</th><th>Description</th><th>Icons</th></tr>
+<tr><td>clearsky</td><td class='c'>1</td><td>Clear sky</td><td><img src='/images/weathericons/svg/clearsky_day.svg' width='36'/><img src='/images/weathericons/svg/clearsky_night.svg' width='36'/><img src='/images/weathericons/svg/clearsky_polartwilight.svg' width='36'/></td></tr>
+<tr><td>cloudy</td><td class='c'>4</td><td>Cloudy</td><td><img src='/images/weathericons/svg/cloudy.svg' width='36'/></td></tr>
+<tr><td>fair</td><td class='c'>2</td><td>Fair</td><td><img src='/images/weathericons/svg/fair_day.svg' width='36'/><img src='/images/weathericons/svg/fair_night.svg' width='36'/><img src='/images/weathericons/svg/fair_polartwilight.svg' width='36'/></td></tr>
+<tr><td>fog</td><td class='c'>15</td><td>Fog</td><td><img src='/images/weathericons/svg/fog.svg' width='36'/></td></tr>
+<tr><td>heavyrain</td><td class='c'>10</td><td>Heavy rain</td><td><img src='/images/weathericons/svg/heavyrain.svg' width='36'/></td></tr>
+<tr><td>heavyrainandthunder</td><td class='c'>11</td><td>Heavy rain and thunder</td><td><img src='/images/weathericons/svg/heavyrainandthunder.svg' width='36'/></td></tr>
+<tr><td>heavyrainshowers</td><td class='c'>41</td><td>Heavy rain showers</td><td><img src='/images/weathericons/svg/heavyrainshowers_day.svg' width='36'/><img src='/images/weathericons/svg/heavyrainshowers_night.svg' width='36'/><img src='/images/weathericons/svg/heavyrainshowers_polartwilight.svg' width='36'/></td></tr>
+<tr><td>heavyrainshowersandthunder</td><td class='c'>25</td><td>Heavy rain showers and thunder</td><td><img src='/images/weathericons/svg/heavyrainshowersandthunder_day.svg' width='36'/><img src='/images/weathericons/svg/heavyrainshowersandthunder_night.svg' width='36'/><img src='/images/weathericons/svg/heavyrainshowersandthunder_polartwilight.svg' width='36'/></td></tr>
+<tr><td>heavysleet</td><td class='c'>48</td><td>Heavy sleet</td><td><img src='/images/weathericons/svg/heavysleet.svg' width='36'/></td></tr>
+<tr><td>heavysleetandthunder</td><td class='c'>32</td><td>Heavy sleet and thunder</td><td><img src='/images/weathericons/svg/heavysleetandthunder.svg' width='36'/></td></tr>
+<tr><td>heavysleetshowers</td><td class='c'>43</td><td>Heavy sleet showers</td><td><img src='/images/weathericons/svg/heavysleetshowers_day.svg' width='36'/><img src='/images/weathericons/svg/heavysleetshowers_night.svg' width='36'/><img src='/images/weathericons/svg/heavysleetshowers_polartwilight.svg' width='36'/></td></tr>
+<tr><td>heavysleetshowersandthunder</td><td class='c'>27</td><td>Heavy sleet showers and thunder</td><td><img src='/images/weathericons/svg/heavysleetshowersandthunder_day.svg' width='36'/><img src='/images/weathericons/svg/heavysleetshowersandthunder_night.svg' width='36'/><img src='/images/weathericons/svg/heavysleetshowersandthunder_polartwilight.svg' width='36'/></td></tr>
+<tr><td>heavysnow</td><td class='c'>50</td><td>Heavy snow</td><td><img src='/images/weathericons/svg/heavysnow.svg' width='36'/></td></tr>
+<tr><td>heavysnowandthunder</td><td class='c'>34</td><td>Heavy snow and thunder</td><td><img src='/images/weathericons/svg/heavysnowandthunder.svg' width='36'/></td></tr>
+<tr><td>heavysnowshowers</td><td class='c'>45</td><td>Heavy snow showers</td><td><img src='/images/weathericons/svg/heavysnowshowers_day.svg' width='36'/><img src='/images/weathericons/svg/heavysnowshowers_night.svg' width='36'/><img src='/images/weathericons/svg/heavysnowshowers_polartwilight.svg' width='36'/></td></tr>
+<tr><td>heavysnowshowersandthunder</td><td class='c'>29</td><td>Heavy snow showers and thunder</td><td><img src='/images/weathericons/svg/heavysnowshowersandthunder_day.svg' width='36'/><img src='/images/weathericons/svg/heavysnowshowersandthunder_night.svg' width='36'/><img src='/images/weathericons/svg/heavysnowshowersandthunder_polartwilight.svg' width='36'/></td></tr>
+<tr><td>lightrain</td><td class='c'>46</td><td>Light rain</td><td><img src='/images/weathericons/svg/lightrain.svg' width='36'/></td></tr>
+<tr><td>lightrainandthunder</td><td class='c'>30</td><td>Light rain and thunder</td><td><img src='/images/weathericons/svg/lightrainandthunder.svg' width='36'/></td></tr>
+<tr><td>lightrainshowers</td><td class='c'>40</td><td>Light rain showers</td><td><img src='/images/weathericons/svg/lightrainshowers_day.svg' width='36'/><img src='/images/weathericons/svg/lightrainshowers_night.svg' width='36'/><img src='/images/weathericons/svg/lightrainshowers_polartwilight.svg' width='36'/></td></tr>
+<tr><td>lightrainshowersandthunder</td><td class='c'>24</td><td>Light rain showers and thunder</td><td><img src='/images/weathericons/svg/lightrainshowersandthunder_day.svg' width='36'/><img src='/images/weathericons/svg/lightrainshowersandthunder_night.svg' width='36'/><img src='/images/weathericons/svg/lightrainshowersandthunder_polartwilight.svg' width='36'/></td></tr>
+<tr><td>lightsleet</td><td class='c'>47</td><td>Light sleet</td><td><img src='/images/weathericons/svg/lightsleet.svg' width='36'/></td></tr>
+<tr><td>lightsleetandthunder</td><td class='c'>31</td><td>Light sleet and thunder</td><td><img src='/images/weathericons/svg/lightsleetandthunder.svg' width='36'/></td></tr>
+<tr><td>lightsleetshowers</td><td class='c'>42</td><td>Light sleet showers</td><td><img src='/images/weathericons/svg/lightsleetshowers_day.svg' width='36'/><img src='/images/weathericons/svg/lightsleetshowers_night.svg' width='36'/><img src='/images/weathericons/svg/lightsleetshowers_polartwilight.svg' width='36'/></td></tr>
+<tr><td>lightsnow</td><td class='c'>49</td><td>Light snow</td><td><img src='/images/weathericons/svg/lightsnow.svg' width='36'/></td></tr>
+<tr><td>lightsnowandthunder</td><td class='c'>33</td><td>Light snow and thunder</td><td><img src='/images/weathericons/svg/lightsnowandthunder.svg' width='36'/></td></tr>
+<tr><td>lightsnowshowers</td><td class='c'>44</td><td>Light snow showers</td><td><img src='/images/weathericons/svg/lightsnowshowers_day.svg' width='36'/><img src='/images/weathericons/svg/lightsnowshowers_night.svg' width='36'/><img src='/images/weathericons/svg/lightsnowshowers_polartwilight.svg' width='36'/></td></tr>
+<tr><td>lightssleetshowersandthunder</td><td class='c'>26</td><td>Lights sleet showers and thunder</td><td><img src='/images/weathericons/svg/lightssleetshowersandthunder_day.svg' width='36'/><img src='/images/weathericons/svg/lightssleetshowersandthunder_night.svg' width='36'/><img src='/images/weathericons/svg/lightssleetshowersandthunder_polartwilight.svg' width='36'/></td></tr>
+<tr><td>lightssnowshowersandthunder</td><td class='c'>28</td><td>Lights snow showers and thunder</td><td><img src='/images/weathericons/svg/lightssnowshowersandthunder_day.svg' width='36'/><img src='/images/weathericons/svg/lightssnowshowersandthunder_night.svg' width='36'/><img src='/images/weathericons/svg/lightssnowshowersandthunder_polartwilight.svg' width='36'/></td></tr>
+<tr><td>partlycloudy</td><td class='c'>3</td><td>Partly cloudy</td><td><img src='/images/weathericons/svg/partlycloudy_day.svg' width='36'/><img src='/images/weathericons/svg/partlycloudy_night.svg' width='36'/><img src='/images/weathericons/svg/partlycloudy_polartwilight.svg' width='36'/></td></tr>
+<tr><td>rain</td><td class='c'>9</td><td>Rain</td><td><img src='/images/weathericons/svg/rain.svg' width='36'/></td></tr>
+<tr><td>rainandthunder</td><td class='c'>22</td><td>Rain and thunder</td><td><img src='/images/weathericons/svg/rainandthunder.svg' width='36'/></td></tr>
+<tr><td>rainshowers</td><td class='c'>5</td><td>Rain showers</td><td><img src='/images/weathericons/svg/rainshowers_day.svg' width='36'/><img src='/images/weathericons/svg/rainshowers_night.svg' width='36'/><img src='/images/weathericons/svg/rainshowers_polartwilight.svg' width='36'/></td></tr>
+<tr><td>rainshowersandthunder</td><td class='c'>6</td><td>Rain showers and thunder</td><td><img src='/images/weathericons/svg/rainshowersandthunder_day.svg' width='36'/><img src='/images/weathericons/svg/rainshowersandthunder_night.svg' width='36'/><img src='/images/weathericons/svg/rainshowersandthunder_polartwilight.svg' width='36'/></td></tr>
+<tr><td>sleet</td><td class='c'>12</td><td>Sleet</td><td><img src='/images/weathericons/svg/sleet.svg' width='36'/></td></tr>
+<tr><td>sleetandthunder</td><td class='c'>23</td><td>Sleet and thunder</td><td><img src='/images/weathericons/svg/sleetandthunder.svg' width='36'/></td></tr>
+<tr><td>sleetshowers</td><td class='c'>7</td><td>Sleet showers</td><td><img src='/images/weathericons/svg/sleetshowers_day.svg' width='36'/><img src='/images/weathericons/svg/sleetshowers_night.svg' width='36'/><img src='/images/weathericons/svg/sleetshowers_polartwilight.svg' width='36'/></td></tr>
+<tr><td>sleetshowersandthunder</td><td class='c'>20</td><td>Sleet showers and thunder</td><td><img src='/images/weathericons/svg/sleetshowersandthunder_day.svg' width='36'/><img src='/images/weathericons/svg/sleetshowersandthunder_night.svg' width='36'/><img src='/images/weathericons/svg/sleetshowersandthunder_polartwilight.svg' width='36'/></td></tr>
+<tr><td>snow</td><td class='c'>13</td><td>Snow</td><td><img src='/images/weathericons/svg/snow.svg' width='36'/></td></tr>
+<tr><td>snowandthunder</td><td class='c'>14</td><td>Snow and thunder</td><td><img src='/images/weathericons/svg/snowandthunder.svg' width='36'/></td></tr>
+<tr><td>snowshowers</td><td class='c'>8</td><td>Snow showers</td><td><img src='/images/weathericons/svg/snowshowers_day.svg' width='36'/><img src='/images/weathericons/svg/snowshowers_night.svg' width='36'/><img src='/images/weathericons/svg/snowshowers_polartwilight.svg' width='36'/></td></tr>
+<tr><td>snowshowersandthunder</td><td class='c'>21</td><td>Snow showers and thunder</td><td><img src='/images/weathericons/svg/snowshowersandthunder_day.svg' width='36'/><img src='/images/weathericons/svg/snowshowersandthunder_night.svg' width='36'/><img src='/images/weathericons/svg/snowshowersandthunder_polartwilight.svg' width='36'/></td></tr>
+</table>
+</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="USAGE"
+>USAGE</a></h2>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="/data"
+>/data</a></h3>
+
+<p>This will download a gzipped TAR archive of all icons in all formats.</p>
+
+<pre>    <a href='https://api.met.no/weatherapi/weathericon/2.0/data'><code>https://api.met.no/weatherapi/weathericon/2.0/data</code></a></pre>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="/legends"
+>/legends</a></h3>
+
+<p>This will return a JSON structure with textual explanations for each code in various languages, as well as the old numerical symbol id used by previous versions of Locationforecast.</p>
+
+<pre>    <a href='https://api.met.no/weatherapi/weathericon/2.0/legends'><code>https://api.met.no/weatherapi/weathericon/2.0/legends</code></a></pre>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="LICENSE"
+>LICENSE</a></h2>
+
+<p>The weather icons are copyright (c) 2015-2017 Yr and licensed under the MIT License.</p>
+
+<p>See <a href="https://github.com/YR/weather-symbols/blob/master/LICENSE" class="podlinkurl"
+>https://github.com/YR/weather-symbols/blob/master/LICENSE</a> for more information.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Change_log"
+>Change log</a></h2>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="version_2.0_released,_2020-06-17"
+>version 2.0 released, 2020-06-17</a></h3>
+
+<p>New icon set launched together with Locationforecast 2.0</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="version_2.0_beta,_2020-02-11"
+>version 2.0 beta, 2020-02-11</a></h3>
+
+<p>New, redesigned icons now using mnemonic codes instead of numbers (and arithmetic!).</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="version_1.1,_2014-05-20"
+>version 1.1, 2014-05-20</a></h3>
+
+<dl>
+<dt><a name="New_version_1.1_is_available"
+>New version 1.1 is available</a></dt>
+
+<dd>
+<dt><a name="More_symbols_are_added"
+>More symbols are added</a></dt>
+
+<dd>
+<dt><a name="image/svg+xml_is_now_valid_content_type"
+>image/svg+xml is now valid content_type</a></dt>
+
+<dd>
+<dt><a name="Version_1.0_is_available_until_2014-10-06"
+>Version 1.0 is available until 2014-10-06</a></dt>
+</dl>
+
+
+
+</script>
+
+    </div>
+
+  </div>
+</body>
+</html>
